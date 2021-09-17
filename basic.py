@@ -63,8 +63,8 @@ def train(dataloader, model, loss_fn, optimizer):
         X, y = X.to(device), y.to(device)
 
         # Compute prediction error
-        pred = model(X)
-        loss = loss_fn(pred, y)
+        pred = model(X)  # As expected, pred is Tensor(64,10). This is (batch-size, num_classes).
+        loss = loss_fn(pred, y)  # loss is Tensor()
 
         # Backpropagation
         optimizer.zero_grad()
